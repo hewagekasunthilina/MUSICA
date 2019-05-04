@@ -10,6 +10,7 @@ public class User {
 	private String country;
 	private String userName;
 	private String email;
+	private String mobileNumber;
 	private String password;
 	private String type = null;
 	public boolean valid;
@@ -55,6 +56,12 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 	public String getPassword() {
 		return password;
