@@ -114,7 +114,7 @@
 				<input type="text" placeholder="Enter your lastname" name="userName" required><br/>
 				<input type="text" placeholder="Enter your email" name="email" required><br/>
 				<input type="text" placeholder="Enter your mobilenumber" name="mobilenumber" required><br/>
-				<input type="Password" placeholder="Enter your Password" name="Password_1" required><br/>
+				<input type="Password" placeholder="Enter your Password" name="Password" required><br/>
 				<input type="Password" placeholder="Re-type your Password" name="Password_2" required><br/>
                 
 				<input type="submit" name="sign up" value="Signup"><br/><br/>
