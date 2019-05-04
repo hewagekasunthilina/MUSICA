@@ -13,7 +13,7 @@ public class DBConnection {
 	public static Connection getDBconnection() throws ClassNotFoundException, SQLException{
 		
 		//Server connection parameters
-		String url = "jdbc:mysql://localhost:3306/online-music-store";
+		String url = "jdbc:mysql://localhost:3306/musica";
 		String username = "root";
 		String password = null;
 		

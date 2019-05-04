@@ -105,7 +105,7 @@
 	    
         <!-- <p style="color: red;"></p>-->
         
-		<form method="POST" action="login">
+		<form method="POST" action="Signup">
 			<div>
 				<input type="text" placeholder="Enter your firstname" name="firstname" required><br/>
 				<input type="text" placeholder="Enter your lastname" name="lastname" required><br/>
@@ -117,7 +117,7 @@
 				<input type="Password" placeholder="Enter your Password" name="Password_1" required><br/>
 				<input type="Password" placeholder="Re-type your Password" name="Password_2" required><br/>
                 
-				<input type="submit" name="sign up" value="Sign up"><br/><br/>
+				<input type="submit" name="sign up" value="Signup"><br/><br/>
                 <span>Allready a member? <a href="login">Login</a></span> <br/> <br/>
             </div>
 		</form>
