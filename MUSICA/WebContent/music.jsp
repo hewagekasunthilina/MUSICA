@@ -124,7 +124,7 @@
 		<div class = "btn">
 		<button class="button"><span>Albums </span></button>
 		<a href= "artist.jsp"><button class="button"><span>Artist </span></button></a>
-		<button class="button"><span>Instruments </span></button>
+		<a href= "instruments.jsp"><button class="button"><span>Instruments </span></button></a>
 		<button class="button"><span>Store </span></button>
 		</div>
 	</div>
