@@ -116,7 +116,7 @@
 				<input type="password" name="password" placeholder="Password" required><br/>
                 
 				<input type="submit" name="login" value="LOGIN"><br/><br/>
-                <span>Not a member yet? <a href="register">Join now</a></span> <br/> <br/>
+                <span>Not a member yet? <a href="signin">Join now</a></span> <br/> <br/>
             </div>
 		</form>
 	</div>
