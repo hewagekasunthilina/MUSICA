@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2019 at 10:04 AM
+-- Generation Time: May 04, 2019 at 10:48 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -48,6 +48,25 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `firstName`, `lastName`, `gender`, `country`, `userName`, `email`, `mobileNo`, `password`, `type`) VALUES
 (1, 'Admin', 'Admin', 'Male', 'Sri Lanka', 'Admin', 'admin@gmail.com', 332274526, 'admin', 'admin');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `useraccount`
+--
+
+CREATE TABLE `useraccount` (
+  `userID` int(100) NOT NULL,
+  `userName` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `useraccount`
+--
+
+INSERT INTO `useraccount` (`userID`, `userName`, `password`) VALUES
+(1, 'Admin', 'admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -59,6 +78,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`userID`);
 
 --
+-- Indexes for table `useraccount`
+--
+ALTER TABLE `useraccount`
+  ADD PRIMARY KEY (`userID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -67,6 +92,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `user`
   MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `useraccount`
+--
+ALTER TABLE `useraccount`
+  MODIFY `userID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
