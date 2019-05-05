@@ -1,11 +1,15 @@
 package com.onlinemusicstore.servlet;
-package com.onlinemusicstore.conn;
-import java.io.IOException; 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.mysql.jdbc.PreparedStatement;
 
 
 
@@ -47,6 +51,7 @@ public class Signup extends HttpServlet {
 			String sql ="insert into user(firstName,lastName,gender,country,userName,email,mobileNo,password) values(?,?,?,?,?,?,?,?)";
 			
 			
+			Object conn;
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
 			ps.setString(1, firstName);

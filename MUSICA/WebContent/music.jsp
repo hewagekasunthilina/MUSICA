@@ -122,18 +122,13 @@
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		
 		<div class = "btn">
-		<button class="button"><span>Albums </span></button>
+		<a href = "genre.jsp"><button class="button"><span>Albums </span></button></a>
 		<a href= "artist.jsp"><button class="button"><span>Artist </span></button></a>
 		<a href= "instruments.jsp"><button class="button"><span>Instruments </span></button></a>
 		<button class="button"><span>Store </span></button>
 		</div>
 	</div>
 </div>	
-
-
-
-
-
 
 <jsp:include page="WEB-INF/views/footer.jsp"/>
 
