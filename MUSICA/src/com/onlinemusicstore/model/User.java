@@ -3,22 +3,22 @@ package com.onlinemusicstore.model;
 
 public class User {
 
-	private String userID;
+	private int userID;
 	private String firstName;
 	private String lastName;
 	private String gender;
 	private String country;
 	private String userName;
 	private String email;
-	private String mobileNumber;
+	private int mobileNumber;
 	private String password;
 	private String type = null;
 	public boolean valid;
-	public String getUserID() {
+	public int getUserID() {
 		return userID;
 	}
-	public void setUserID(String userID) {
-		this.userID = userID;
+	public void setUserID(int i) {
+		this.userID = i;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -57,10 +57,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getMobileNumber() {
+	public int getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(String mobileNumber) {
+	public void setMobileNumber(int mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	public String getPassword() {

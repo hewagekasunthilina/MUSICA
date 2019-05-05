@@ -1,5 +1,4 @@
 
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -38,7 +37,7 @@
 		.showcase::after{
 			content: '';
 			height: 450px;
-			width: 1400px;
+			width: 100%;
 			background-image: url(images/img1.jpg);
 			background-size: cover;
 			background-repeat: no-repeat;
@@ -386,17 +385,6 @@
 
 			<div class="text">
 				Be the food of love, play on..
-				<div class = "b">
-				
-			   
-				
-				<a href = "login.jsp"><button class="button"><span>LOGIN </span></button></a>
-				<a href = "signin.jsp"><button class="button"><span>SIGNUP </span></button></a>
-				
-				 
-				
-				
-				</div>
 				
 			</div>
 		</div>

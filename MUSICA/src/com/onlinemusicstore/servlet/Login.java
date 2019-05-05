@@ -71,7 +71,7 @@ public class Login extends HttpServlet {
 			String errorString = "Invalid Username or Password";
 			request.setAttribute("errorString", errorString);
 			
-			request.getRequestDispatcher("adminpanel.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 		
 		
