@@ -13,14 +13,21 @@ public class DBConnection {
 	public static Connection getDBconnection() throws ClassNotFoundException, SQLException{
 		
 		//Server connection parameters
+		String driver="com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/musica";
 		String username = "root";
-		String password = null;
+		String password = "root";
 		
 		
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName(driver);
 		Connection conn = DriverManager.getConnection(url, username, password);
+		if(conn!=null) {
+			System.out.println("Connected No Errors");
+		}
 		
+		else {
+			System.out.println("Errors With Connection");
+		}
 		return conn;
 	}
 }

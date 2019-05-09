@@ -112,11 +112,11 @@
         
 		<form method="POST" action="Login">
 			<div>
-				<input type="text" name="userName" placeholder="Username" required><br/>
-				<input type="password" name="password" placeholder="Password" required><br/>
+				<input type="text" name="userName" placeholder="Your Username" required><br/>
+				<input type="password" name="password" placeholder="Your Password" required><br/>
                 
 				<input type="submit" name="login" value="LOGIN"><br/><br/>
-                <span>Not a member yet? <a href="signin">Join now</a></span> <br/> <br/>
+                <span>Not a member yet? <a href="signin.jsp">Join now</a></span> <br/> <br/>
             </div>
 		</form>
 	</div>

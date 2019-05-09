@@ -14,19 +14,20 @@ public class UserServiceImpl implements IUserService{
 	
 public void addUser(User user) {
 		
-		String addUserQuery = "INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?)";
-		String addUserAccountQuery = "INSERT INTO user VALUES(?,?,?)";
+		String addUserQuery = "INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?)";
+		String addUserAccountQuery = "INSERT INTO useraccount VALUES(?,?,?)";
 		
 		
 		try {
 			// add data to user table
 			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(addUserQuery);
 			
-			ps.setInt(1, user.getUserID());
+			ps.setString(1, user.getUserID());
 			ps.setString(2, user.getFirstName());
 			ps.setString(3, user.getLastName());
 			ps.setString(4, user.getGender());
 			ps.setString(5, user.getCountry());
+			ps.setString(6, user.getCountry());
 			ps.setString(7, user.getUserName());
 			ps.setString(8, user.getEmail());
 			ps.setInt(9, user.getMobileNumber());
@@ -37,7 +38,7 @@ public void addUser(User user) {
 			// add data to useraccount table
 			ps = DBConnection.getDBconnection().prepareStatement(addUserAccountQuery);
 			
-			ps.setInt(1, user.getUserID());
+			ps.setString(1, user.getUserID());
 			ps.setString(2, user.getUserName());
 			ps.setString(3, user.getPassword());
 			
@@ -55,7 +56,7 @@ public void addUser(User user) {
 	public User updateUser(User user) {
 		
 		String updateUserQuery = "UPDATE user "
-				+ "SET firstName = ?, lastName = ?, gender = ?, country = ?, platform = ?, email = ? "
+				+ "SET firstName = ?, lastName = ?, gender = ?, country = ?, email = ?, mobileNumber = ? "
 				+ "WHERE userID = ?";
 		
 		try {
@@ -65,9 +66,10 @@ public void addUser(User user) {
 			ps.setString(2, user.getLastName());
 			ps.setString(3, user.getGender());
 			ps.setString(4, user.getCountry());
+			ps.setString(5, user.getCountry());
 			ps.setString(6, user.getEmail());
-			ps.setInt(9, user.getMobileNumber());
-			ps.setInt(1, user.getUserID());
+			ps.setInt(7, user.getMobileNumber());
+			ps.setString(8, user.getUserID());
 			
 			ps.executeUpdate();
 			
@@ -83,9 +85,9 @@ public void addUser(User user) {
 	public User loginUser(User user) {
 		
 		ArrayList<User> arrayList = new ArrayList<>();
-		int uID;
+		String uID = null;
 		
-		String loginQuery1 = "SELECT * FROM user WHERE userName = ? AND password = ?";
+		String loginQuery1 = "SELECT * FROM useraccount WHERE userName = ? AND password = ?";
 		
 		
 				PreparedStatement ps;
@@ -100,21 +102,21 @@ public void addUser(User user) {
 					
 					if(resultSet.next()) {
 						
-						uID = resultSet.getInt(1);
+						uID = resultSet.getString(1);
 						
 						user.setUserID(uID);
 						arrayList = getUser(uID);
 						
 						for(User player: arrayList) {
 						
-							user.setUserName(resultSet.getString("userName"));
-							user.setFirstName(resultSet.getString("firstName"));
-							user.setLastName(resultSet.getString("lastName"));
-							user.setGender(resultSet.getString("gender"));
-							user.setCountry(resultSet.getString("country"));
-							user.setEmail(resultSet.getString("email"));
-							user.setMobileNumber(resultSet.getInt("mobileNumber"));
-							user.setType(resultSet.getString("type"));
+							user.setUserName(user.getUserName());
+							user.setFirstName(user.getFirstName());
+							user.setLastName(user.getLastName());
+							user.setGender(user.getGender());
+							user.setCountry(user.getCountry());
+							user.setEmail(user.getEmail());
+							user.setMobileNumber(user.getMobileNumber());
+							user.setType(user.getType());
 							
 							user.setValid(true);
 							
@@ -139,7 +141,7 @@ public void addUser(User user) {
 	public String getPassword(String userID) {
 		
 		String password = null;
-		String getPasswordQuery = "SELECT * FROM user WHERE userID = ?";
+		String getPasswordQuery = "SELECT * FROM useraccount WHERE userID = ?";
 		
 		try {
 			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(getPasswordQuery);
@@ -163,7 +165,7 @@ public void addUser(User user) {
 	
 	public void updatePassword(String userID, String password) {
 		
-		String updateUserPasswordQuery = "UPDATE user SET password = ? WHERE userID = ?";
+		String updateUserPasswordQuery = "UPDATE useraccount SET password = ? WHERE userID = ?";
 		String updateUserRecoveryPasswordQuery = "UPDATE passwordrecovery SET password = ? WHERE userID = ?";
 		
 		try {
@@ -190,7 +192,7 @@ public void addUser(User user) {
 	}
 	
 	// retrieve user from DB
-	public ArrayList<User> getUser(int uID){
+	public ArrayList<User> getUser(String userID){
 		
 		ArrayList<User> userList = new ArrayList<User>();
 		
@@ -200,23 +202,22 @@ public void addUser(User user) {
 			
 			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(getUserQuery);
 			
-			ps.setInt(1, uID);
+			ps.setString(1, userID);
 			
 			ResultSet resultSet = ps.executeQuery();
 			
 			while (resultSet.next()) {
 				
 				User user = new User();
-				user.setUserID(resultSet.getInt("userID"));
+				user.setUserID(resultSet.getString(1));
 				user.setFirstName(resultSet.getString(2));
 				user.setLastName(resultSet.getString(3));
 				user.setGender(resultSet.getString(4));
 				user.setCountry(resultSet.getString(5));
-				user.setUserName(resultSet.getString(7));
-				user.setEmail(resultSet.getString(8));
-				user.setMobileNumber(resultSet.getInt("mobileNumber"));
-				user.setType(resultSet.getString(10));
-				System.out.println(user.getUserID()+user.getMobileNumber());
+				user.setUserName(resultSet.getString(6));
+				user.setEmail(resultSet.getString(7));
+				user.setMobileNumber(resultSet.getInt(8));
+				user.setType(resultSet.getString(9));
 				userList.add(user);
 			}
 			
@@ -257,7 +258,7 @@ public void addUser(User user) {
 	public void deleteUser(String userID) {
 		
 		String deleteUserQuery = "DELETE FROM user WHERE userID = ?";
-		String deleteUserAccountQuery = "DELETE FROM user WHERE userID = ?";
+		String deleteUserAccountQuery = "DELETE FROM useraccount WHERE userID = ?";
 		String deleteFavouriteQuery = "DELETE FROM favourite WHERE userID = ?";
 		
 		try {
@@ -297,9 +298,16 @@ public void addUser(User user) {
 
 
 	@Override
-	public ArrayList<User> getUser(String userID) {
+	public void Signup(User user) {
 		// TODO Auto-generated method stub
-		return null;
+		
+	}
+
+
+	@Override
+	public void Login(User user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -108,7 +108,7 @@
 
 <div class="banner">
 	<video autoplay loop>
-		<source src="videos/video1.mp4" type="video/mp4">
+		<source src="videos/video2.mp4" type="video/mp4">
 		
 	</video>
 	

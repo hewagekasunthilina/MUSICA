@@ -1,79 +1,93 @@
 package com.onlinemusicstore.servlet;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 
+import com.onlinemusicstore.model.User;
+import com.onlinemusicstore.service.IUserService;
+import com.onlinemusicstore.service.UserServiceImpl;
+import com.onlinemusicstore.util.commonUtil;
+
+//import com.gamestation.util.DBQuery;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.mysql.jdbc.PreparedStatement;
-
-
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Signup
+ * Servlet implementation class Register
  */
-@WebServlet("/Signup")
+
+@WebServlet("/register")
 public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * Default constructor. 
-     */
+       
+	
     public Signup() {
-        // TODO Auto-generated constructor stub
-    }
+        super();
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    }
+    
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+    	
+    	HttpSession session = request.getSession(); 
+    	User user = (User) session.getAttribute("currentSessionUser");
+		
+		if(request.getAttribute("delete_confirm") != null) {
+
+			session.invalidate();
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/signin.jsp");
+			dispatcher.forward(request, response);
+		
+		}
+		
+		if(user != null) {
+			
+			response.sendRedirect("index.jsp");
+			
+		}
+		
+		else {
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/signin.jsp");
+			dispatcher.forward(request, response);
+			
+		}
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			String firstName = request.getParameter("firstname");
-			String lastName = request.getParameter("lastname");
-			String gender = request.getParameter("gender");
-			String country = request.getParameter("country");
-			String userName = request.getParameter("userName");
-			String email = request.getParameter("email");
-			String mobileNo = request.getParameter("mobilenumber");
-			String password = request.getParameter("password");
-			String sql ="insert into user(firstName,lastName,gender,country,userName,email,mobileNo,password) values(?,?,?,?,?,?,?,?)";
-			
-			
-			Object conn;
-			PreparedStatement ps = conn.prepareStatement(sql);
-			
-			ps.setString(1, firstName);
-			ps.setString(2, lastName);
-			ps.setString(3, gender);
-			ps.setString(4, country);
-			ps.setString(5, userName);
-			ps.setString(6, email);
-			ps.setString(7, mobileNo);
-			ps.setString(8, password);
-			ps.executeUpdate();
-			PrintWriter out = response.getWriter();
-			out.println("You have succesfully registered");		
-		} 
+
+		User user = new User();
+		IUserService iUserService = new UserServiceImpl();
+		String userID = commonUtil.generateUserIDs(iUserService.getUserIDs());
 		
-		catch (ClassNotFoundException e) {
-			
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		user.setUserID(userID);
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setGender(request.getParameter("gender"));
+		user.setCountry(request.getParameter("country"));
+		user.setUserName(request.getParameter("userName"));
+		user.setMobileNumber(request.getParameter("mobileNumber"));
+		user.setPassword(request.getParameter("password1"));
+		user.setEmail(request.getParameter("email"));
+		user.setType("user");
+		
+		iUserService.addUser(user);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("currentSessionUser", user);
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/viewUser.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 }

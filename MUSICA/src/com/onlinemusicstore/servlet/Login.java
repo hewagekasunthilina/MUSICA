@@ -1,7 +1,11 @@
 package com.onlinemusicstore.servlet;
+
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,12 +15,18 @@ import com.onlinemusicstore.model.User;
 import com.onlinemusicstore.service.IUserService;
 import com.onlinemusicstore.service.UserServiceImpl;
 
-import java.io.IOException;
+/**
+ * Servlet implementation class Login
+ */
 
+@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	public Login() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +41,8 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession();   
 		session.invalidate();
         
-       
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminpanel.jsp");
+		dispatcher.forward(request, response);
 		
 	}
 
@@ -43,7 +54,7 @@ public class Login extends HttpServlet {
 		
 		User user = new User();
 		
-		user.setFirstName(request.getParameter("userName"));
+		user.setUserName(request.getParameter("userName"));
 		user.setPassword(request.getParameter("password"));
 		
 		
@@ -52,9 +63,6 @@ public class Login extends HttpServlet {
 		
 		String type = user.getType();
 		
-		 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminpanel.jsp");
-			dispatcher.forward(request, response);
-		
 		if(user.isValid()) {
 			
 			HttpSession session = request.getSession();   
@@ -62,7 +70,7 @@ public class Login extends HttpServlet {
 	        session.setAttribute("type", type);
 	        
 			
-	        request.getRequestDispatcher("index.jsp").forward(request, response);
+			response.sendRedirect("index.jsp");
 			
 		}
 		
@@ -71,7 +79,8 @@ public class Login extends HttpServlet {
 			String errorString = "Invalid Username or Password";
 			request.setAttribute("errorString", errorString);
 			
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminpanel.jsp");
+			dispatcher.forward(request, response);
 		}
 		
 		
@@ -80,5 +89,3 @@ public class Login extends HttpServlet {
 	}
 
 }
-
-
