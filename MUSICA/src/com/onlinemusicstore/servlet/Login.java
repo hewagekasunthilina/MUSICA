@@ -67,7 +67,14 @@ public class Login extends HttpServlet {
 			
 			HttpSession session = request.getSession();   
 	        session.setAttribute("currentSessionUser", user);
-	        session.setAttribute("type", type);
+	        if(type.equals("admin")) {
+	        	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("adminpanel.jsp");
+				dispatcher.forward(request, response);
+	        }
+	        else {
+	        	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("index.jsp");
+				dispatcher.forward(request, response);
+	        }
 	        
 			
 			response.sendRedirect("index.jsp");
@@ -79,7 +86,7 @@ public class Login extends HttpServlet {
 			String errorString = "Invalid Username or Password";
 			request.setAttribute("errorString", errorString);
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminpanel.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 		}
 		

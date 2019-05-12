@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class Register
  */
 
-@WebServlet("/register")
+@WebServlet("/Signup")
 public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -85,7 +85,7 @@ public class Signup extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("currentSessionUser", user);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/viewUser.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 		
 	}

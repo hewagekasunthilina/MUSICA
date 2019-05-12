@@ -32,7 +32,7 @@ public void addUser(User user) {
 			ps.setString(8, user.getEmail());
 			ps.setInt(9, user.getMobileNumber());
 			ps.setString(10, user.getType());
-			
+			System.out.println("ps");
 			ps.executeUpdate();
 			
 			// add data to useraccount table
@@ -84,7 +84,7 @@ public void addUser(User user) {
 	
 	public User loginUser(User user) {
 		
-		ArrayList<User> arrayList = new ArrayList<>();
+	
 		String uID = null;
 		
 		String loginQuery1 = "SELECT * FROM useraccount WHERE userName = ? AND password = ?";
@@ -105,22 +105,13 @@ public void addUser(User user) {
 						uID = resultSet.getString(1);
 						
 						user.setUserID(uID);
-						arrayList = getUser(uID);
 						
-						for(User player: arrayList) {
 						
-							user.setUserName(user.getUserName());
-							user.setFirstName(user.getFirstName());
-							user.setLastName(user.getLastName());
-							user.setGender(user.getGender());
-							user.setCountry(user.getCountry());
-							user.setEmail(user.getEmail());
-							user.setMobileNumber(user.getMobileNumber());
-							user.setType(user.getType());
+						user.setType(resultSet.getString("type"));
 							
 							user.setValid(true);
 							
-						}
+						
 						
 					}
 					
@@ -297,17 +288,6 @@ public void addUser(User user) {
 	}
 
 
-	@Override
-	public void Signup(User user) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void Login(User user) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

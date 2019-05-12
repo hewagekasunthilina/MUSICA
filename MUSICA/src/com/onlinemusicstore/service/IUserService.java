@@ -22,9 +22,7 @@ public interface IUserService {
 	
 	public void deleteUser(String userID);
 	
-	void Signup(User user);
 	
-	public void Login(User user); 
 	
 
 }
