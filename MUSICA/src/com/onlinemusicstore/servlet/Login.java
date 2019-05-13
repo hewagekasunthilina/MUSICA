@@ -1,7 +1,11 @@
 package com.onlinemusicstore.servlet;
+
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,12 +15,18 @@ import com.onlinemusicstore.model.User;
 import com.onlinemusicstore.service.IUserService;
 import com.onlinemusicstore.service.UserServiceImpl;
 
-import java.io.IOException;
+/**
+ * Servlet implementation class Login
+ */
 
+@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	public Login() {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -25,13 +35,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		
-		HttpSession session = request.getSession();   
-		session.invalidate();
-        
-       
 		
 	}
 
@@ -43,26 +47,32 @@ public class Login extends HttpServlet {
 		
 		User user = new User();
 		
-		user.setFirstName(request.getParameter("userName"));
+		user.setUserName(request.getParameter("userName"));
 		user.setPassword(request.getParameter("password"));
 		
 		
 		IUserService iUserService = new UserServiceImpl();
 		user = iUserService.loginUser(user);
 		
-		String type = user.getType();
 		
-		 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminpanel.jsp");
-			dispatcher.forward(request, response);
 		
 		if(user.isValid()) {
 			
 			HttpSession session = request.getSession();   
-	        session.setAttribute("currentSessionUser", user);
-	        session.setAttribute("type", type);
+			
+	        System.out.println(user.getType());
+	        String type = user.getType();
+	        if(type.equals("admin")) {
+	        	request.getSession(true).setAttribute("currentSessionUser", user);
+	        	request.getRequestDispatcher("adminpanel.jsp").forward(request, response);
+	        }
+	        if(type.equals("user")) {
+	        	request.getSession(true).setAttribute("currentSessionUser", user);
+	        	request.getRequestDispatcher("index.jsp").forward(request, response);
+	        }
 	        
 			
-	        request.getRequestDispatcher("index.jsp").forward(request, response);
+		
 			
 		}
 		
@@ -80,5 +90,3 @@ public class Login extends HttpServlet {
 	}
 
 }
-
-
