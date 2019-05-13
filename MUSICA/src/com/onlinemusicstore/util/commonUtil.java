@@ -10,10 +10,10 @@ public class commonUtil {
 		String id;
 		int next = arrayList.size();
 		next++;
-		id = "U001" + next;
+		id = "1" + next;
 		if (arrayList.contains(id)) {
 			next++;
-			id = "U001" + next;
+			id = "1" + next;
 		}
 		return id;
 	}
