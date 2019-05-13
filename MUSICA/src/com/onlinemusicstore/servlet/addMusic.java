@@ -19,7 +19,7 @@ import com.onlinemusicstore.util.commonUtil;
 import com.onlinemusicstore.service.MusicServiceImpl;
 
 
-@WebServlet("/addMusic")
+@WebServlet("/add-music")
 public class addMusic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -47,7 +47,7 @@ public class addMusic extends HttpServlet {
 		
 		music.setMusicID(musicID);
 		music.setMusicName(request.getParameter("musicName"));
-		music.setMusicTrack(request.getParameter("musicTrack"));
+		//music.setMusicTrack(request.getParameter("musicTrack"));
 		music.setMusicArtist(request.getParameter("musicArtist"));
 		
 		iMusicService.addMusic(music);

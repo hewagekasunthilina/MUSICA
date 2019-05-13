@@ -217,7 +217,7 @@
 				<a href = "signin.jsp"><button class="button"><span>SIGNUP </span></button></a>
 				<%} else { %>
 				
-				<a href = "Login">
+				<a href = "Logout">
 					<button type = "submit" class = "button">Logout</button>
 				</a>
 				

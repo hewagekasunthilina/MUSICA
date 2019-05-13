@@ -32,7 +32,7 @@ public void addUser(User user) {
 			ps.setString(8, user.getEmail());
 			ps.setInt(9, user.getMobileNumber());
 			ps.setString(10, user.getType());
-			System.out.println("ps");
+			
 			ps.executeUpdate();
 			
 			// add data to useraccount table
@@ -99,7 +99,7 @@ public void addUser(User user) {
 					ps.setString(2, user.getPassword());
 			
 					ResultSet resultSet = ps.executeQuery(); 
-					System.out.println(ps);
+					
 					if(resultSet.next()) {
 						
 						uID = resultSet.getString(1);
@@ -108,7 +108,7 @@ public void addUser(User user) {
 						
 						
 						user.setType(resultSet.getString("type"));
-						System.out.println(user.getType());
+						
 							
 						user.setValid(true);
 							

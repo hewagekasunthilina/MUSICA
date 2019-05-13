@@ -12,7 +12,7 @@ public class MusicServiceImpl implements IMusicService {
 		
 	public void addMusic(Music music ) {
 
-		String addGameQuery = "INSERT INTO songs VALUES(?,?,?,?)";
+		String addGameQuery = "INSERT INTO songs VALUES(?,?,?)";
 		//String addGameURLQuery = "INSERT INTO gameurl VALUES(?,?)";		
 			
 		try {
@@ -20,7 +20,7 @@ public class MusicServiceImpl implements IMusicService {
 			
 			ps.setString(1, music.getMusicID());
 			ps.setString(2, music.getMusicName());
-			ps.setString(3, music.getMusicTrack());
+			//ps.setString(3, music.getMusicTrack());
 			ps.setString(4, music.getMusicArtist());
 			
 			ps.executeUpdate();
@@ -44,14 +44,14 @@ public class MusicServiceImpl implements IMusicService {
 	
 	public void updateMusic(Music music) {
 		
-		String updateGameQuery = " UPDATE songs SET musicName = ?, musicTrack = ?, musicArtist = ? WHERE musicID = ?";	//writing Quarry to update music table		
+		String updateGameQuery = " UPDATE songs SET musicName = ?, musicArtist = ?, WHERE musicID = ?";	//writing Quarry to update music table		
 		
 		try {
 			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(updateGameQuery);	//connecting to database
 			
 			//Assign values to quary
 			ps.setString(1, music.getMusicName());
-			ps.setString(2, music.getMusicTrack());
+			//ps.setString(2, music.getMusicTrack());
 			ps.setString(3, music.getMusicArtist());
 			ps.setString(4, music.getMusicID());
 			
