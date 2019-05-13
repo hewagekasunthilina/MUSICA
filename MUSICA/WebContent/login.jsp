@@ -110,7 +110,7 @@
 	    
         <!-- <p style="color: red;"></p>-->
         
-		<form method="POST" action="Login">
+		<form method="POST" action="login">
 			<div>
 				<input type="text" name="userName" placeholder="Your Username" required><br/>
 				<input type="password" name="password" placeholder="Your Password" required><br/>

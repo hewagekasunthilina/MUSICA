@@ -14,12 +14,7 @@
 <head>
 <meta charset="ISO-8859-1">
 
-	    <% 
 	   
-		
-
-		String type = (String)request.getSession(false).getAttribute("type");
-	    %>
 
 		 <style>
 		
@@ -207,29 +202,7 @@
 		<div class="container">
 			<nav>
 				<h1 class="musica"><a href="index.jsp">MU<span>S</span>ICA</a></h1>
-				
-				<% if(request.getSession(false).getAttribute("currentSessionUser")!=null){%>
-					<%if(type.equals("admin")){ %>
-				
-				<ul>
-					<li><a href="index.jsp">Edit Music</a></li>
-					<li><a href="music.jsp">Edit Instru</a></li>
-					<li><a href="#">Messages</a></li>
-					<li><a href="#">Delete</a></li>
-				</ul>
-				
-				<%} else { %>
 					
-				<ul>
-					<li><a href="index.jsp">Artist</a></li>
-					<li><a href="music.jsp">Instruments</a></li>
-					<li><a href="#">Messages</a></li>
-				</ul>
-				
-				<%} %>
-				
-				<%} else { %>
-				
 				<ul>
 					<li><a href="index.jsp">Home</a></li>
 					<li><a href="music.jsp">Music</a></li>
@@ -237,7 +210,7 @@
 					<li><a href="#">Contact</a></li>
 				</ul>
 				
-				<%} %>
+
 				
 				<% if(request.getSession(false).getAttribute("currentSessionUser")==null){ %>
 				<a href = "login.jsp"><button class="button"><span>LOGIN </span></button></a>

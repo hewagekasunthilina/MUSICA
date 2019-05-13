@@ -15,7 +15,7 @@ public class UserServiceImpl implements IUserService{
 public void addUser(User user) {
 		
 		String addUserQuery = "INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?)";
-		String addUserAccountQuery = "INSERT INTO useraccount VALUES(?,?,?)";
+		//String addUserAccountQuery = "INSERT INTO useraccount VALUES(?,?,?)";
 		
 		
 		try {
@@ -36,14 +36,14 @@ public void addUser(User user) {
 			ps.executeUpdate();
 			
 			// add data to useraccount table
-			ps = DBConnection.getDBconnection().prepareStatement(addUserAccountQuery);
-			
-			ps.setString(1, user.getUserID());
-			ps.setString(2, user.getUserName());
-			ps.setString(3, user.getPassword());
-			
-			ps.executeUpdate();
-			
+//			ps = DBConnection.getDBconnection().prepareStatement(addUserAccountQuery);
+//			
+//			ps.setString(1, user.getUserID());
+//			ps.setString(2, user.getUserName());
+//			ps.setString(3, user.getPassword());
+//			
+//			ps.executeUpdate();
+//			
 			
 		} catch (ClassNotFoundException | SQLException e) {
 
@@ -87,7 +87,7 @@ public void addUser(User user) {
 	
 		String uID = null;
 		
-		String loginQuery1 = "SELECT * FROM useraccount WHERE userName = ? AND password = ?";
+		String loginQuery1 = "SELECT * FROM user WHERE userName = ? AND password = ?";
 		
 		
 				PreparedStatement ps;
@@ -99,7 +99,7 @@ public void addUser(User user) {
 					ps.setString(2, user.getPassword());
 			
 					ResultSet resultSet = ps.executeQuery(); 
-					
+					System.out.println(ps);
 					if(resultSet.next()) {
 						
 						uID = resultSet.getString(1);
@@ -108,8 +108,9 @@ public void addUser(User user) {
 						
 						
 						user.setType(resultSet.getString("type"));
+						System.out.println(user.getType());
 							
-							user.setValid(true);
+						user.setValid(true);
 							
 						
 						
@@ -132,7 +133,7 @@ public void addUser(User user) {
 	public String getPassword(String userID) {
 		
 		String password = null;
-		String getPasswordQuery = "SELECT * FROM useraccount WHERE userID = ?";
+		String getPasswordQuery = "SELECT * FROM user WHERE userID = ?";
 		
 		try {
 			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(getPasswordQuery);
@@ -156,7 +157,7 @@ public void addUser(User user) {
 	
 	public void updatePassword(String userID, String password) {
 		
-		String updateUserPasswordQuery = "UPDATE useraccount SET password = ? WHERE userID = ?";
+		String updateUserPasswordQuery = "UPDATE user SET password = ? WHERE userID = ?";
 		String updateUserRecoveryPasswordQuery = "UPDATE passwordrecovery SET password = ? WHERE userID = ?";
 		
 		try {
@@ -249,7 +250,7 @@ public void addUser(User user) {
 	public void deleteUser(String userID) {
 		
 		String deleteUserQuery = "DELETE FROM user WHERE userID = ?";
-		String deleteUserAccountQuery = "DELETE FROM useraccount WHERE userID = ?";
+		String deleteUserAccountQuery = "DELETE FROM user WHERE userID = ?";
 		String deleteFavouriteQuery = "DELETE FROM favourite WHERE userID = ?";
 		
 		try {

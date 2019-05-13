@@ -203,6 +203,7 @@
  		  
             
             <a href="edit-music"><button class="back" style="width: 180px;">Back</button></a>
+            <a href="Logout"><button class="back" style="width: 180px;">Logout</button></a>
             
         </div>
     </div>

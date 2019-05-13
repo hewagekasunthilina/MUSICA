@@ -35,14 +35,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		
-		HttpSession session = request.getSession();   
-		session.invalidate();
-        
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminpanel.jsp");
-		dispatcher.forward(request, response);
 		
 	}
 
@@ -61,23 +54,25 @@ public class Login extends HttpServlet {
 		IUserService iUserService = new UserServiceImpl();
 		user = iUserService.loginUser(user);
 		
-		String type = user.getType();
+		
 		
 		if(user.isValid()) {
 			
 			HttpSession session = request.getSession();   
-	        session.setAttribute("currentSessionUser", user);
+			
+	        System.out.println(user.getType());
+	        String type = user.getType();
 	        if(type.equals("admin")) {
-	        	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("adminpanel.jsp");
-				dispatcher.forward(request, response);
+	        	request.getSession(true).setAttribute("currentSessionUser", user);
+	        	request.getRequestDispatcher("adminpanel.jsp").forward(request, response);
 	        }
-	        else {
-	        	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("index.jsp");
-				dispatcher.forward(request, response);
+	        if(type.equals("user")) {
+	        	request.getSession(true).setAttribute("currentSessionUser", user);
+	        	request.getRequestDispatcher("index.jsp").forward(request, response);
 	        }
 	        
 			
-			response.sendRedirect("index.jsp");
+		
 			
 		}
 		
@@ -86,8 +81,7 @@ public class Login extends HttpServlet {
 			String errorString = "Invalid Username or Password";
 			request.setAttribute("errorString", errorString);
 			
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("login.jsp");
-			dispatcher.forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 		
 		
