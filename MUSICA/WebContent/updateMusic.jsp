@@ -32,12 +32,15 @@
 		body{
 			
 			margin: 0px;
+			
+			
 		}
         
         .mainArea{
             width: auto;
             height: 700px;
             margin-top: 70px;
+            padding-top: 100px;
         }
         
         .sideBar{
@@ -130,7 +133,7 @@
         		<p style="color: green;" align="center"><br/><%= confirm %></p>
         	<%} %>
 			
-			<form method = "POST" action = "update-game">
+			<form method = "POST" action = "update-music">
 
 				  <input type = "text" name = "musicID" placeholder = "Music Id of the Music you need to Change" required/><br>
 				 

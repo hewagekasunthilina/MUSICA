@@ -55,10 +55,11 @@ public class MusicServiceImpl implements IMusicService {
 			//Assign values to quary
 			ps.setString(1, music.getMusicName());
 			//ps.setString(2, music.getMusicTrack());
-			ps.setString(3, music.getMusicArtist());
-			ps.setString(4, music.getMusicID());
+			ps.setString(2, music.getMusicArtist());
+			ps.setString(3, music.getMusicID());
 			
 			ps.executeUpdate();
+			System.out.println(ps);
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
