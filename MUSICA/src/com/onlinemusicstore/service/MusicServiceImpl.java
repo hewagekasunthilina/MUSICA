@@ -47,7 +47,7 @@ public class MusicServiceImpl implements IMusicService {
 	
 	public void updateMusic(Music music) {
 		
-		String updateMusicQuery = " UPDATE songs SET musicName = ?, musicArtist = ?, WHERE musicID = ?";	//writing Quarry to update music table		
+		String updateMusicQuery = "UPDATE songs SET musicName =?, musicArtist =? WHERE musicID =?";	//writing Quarry to update music table		
 		
 		try {
 			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(updateMusicQuery);	//connecting to database
@@ -59,7 +59,9 @@ public class MusicServiceImpl implements IMusicService {
 			ps.setString(3, music.getMusicID());
 			
 			ps.executeUpdate();
-			System.out.println(ps);
+			
+			
+			
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

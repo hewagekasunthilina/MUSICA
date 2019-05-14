@@ -16,7 +16,7 @@ import com.onlinemusicstore.service.MusicServiceImpl;
 /**
  * Servlet implementation class upgateGane
  */
-@WebServlet("/UpdateMusic")
+@WebServlet("/update-music")
 public class UpdateMusic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -45,9 +45,9 @@ public class UpdateMusic extends HttpServlet {
 		
 		music.setMusicID(request.getParameter("musicID"));
 		music.setMusicName(request.getParameter("musicName"));
-		music.setMusicTrack(request.getParameter("musicTrack"));
+		//music.setMusicTrack(request.getParameter("musicTrack"));
 		music.setMusicArtist(request.getParameter("musicArtist"));
-		
+			
 		IMusicService iMusicService = new MusicServiceImpl();
 		iMusicService.updateMusic(music);
 		
