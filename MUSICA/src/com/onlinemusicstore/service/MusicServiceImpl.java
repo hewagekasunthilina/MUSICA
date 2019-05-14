@@ -12,18 +12,21 @@ public class MusicServiceImpl implements IMusicService {
 		
 	public void addMusic(Music music ) {
 
-		String addGameQuery = "INSERT INTO songs VALUES(?,?,?)";
+		String addMusicQuery = "INSERT INTO songs VALUES(?,?,?)";
 		//String addGameURLQuery = "INSERT INTO gameurl VALUES(?,?)";		
 			
 		try {
-			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(addGameQuery);
+			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(addMusicQuery);
+			
+			
 			
 			ps.setString(1, music.getMusicID());
 			ps.setString(2, music.getMusicName());
 			//ps.setString(3, music.getMusicTrack());
-			ps.setString(4, music.getMusicArtist());
+			ps.setString(3, music.getMusicArtist());
 			
-			ps.executeUpdate();
+			 int i = ps.executeUpdate();
+			 System.out.println(ps);
 			
 			
 			//ps = DBConnection.getDBconnection().prepareStatement(addGameURLQuery);
@@ -44,10 +47,10 @@ public class MusicServiceImpl implements IMusicService {
 	
 	public void updateMusic(Music music) {
 		
-		String updateGameQuery = " UPDATE songs SET musicName = ?, musicArtist = ?, WHERE musicID = ?";	//writing Quarry to update music table		
+		String updateMusicQuery = " UPDATE songs SET musicName = ?, musicArtist = ?, WHERE musicID = ?";	//writing Quarry to update music table		
 		
 		try {
-			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(updateGameQuery);	//connecting to database
+			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(updateMusicQuery);	//connecting to database
 			
 			//Assign values to quary
 			ps.setString(1, music.getMusicName());
@@ -66,11 +69,11 @@ public class MusicServiceImpl implements IMusicService {
 	
 	public void removeMusic(Music music ) {
 
-		String removeGameQuery = "DELETE from songs WHERE  musicID = ? and musicName = ?";
+		String removeMusicQuery = "DELETE from songs WHERE  musicID = ? and musicName = ?";
 		//String removeGameURLQuery = "DELETE from gameurl WHERE  gameID = ?";
 			
 		try {
-			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(removeGameQuery);
+			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(removeMusicQuery);
 			
 			ps.setString(1, music.getMusicID());
 			ps.setString(2, music.getMusicName());

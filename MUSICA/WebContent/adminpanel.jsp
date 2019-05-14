@@ -135,7 +135,7 @@
 		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1.2);
 		  z-index: 1;
 		  border-radius: 10px;
-		  margin-top:7px;
+		  margin-top:4px;
 }
 
 		.dropdown-content a {

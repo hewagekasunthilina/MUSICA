@@ -33,7 +33,7 @@ public class addMusic extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addMusic.jsp");
+    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addMusic");
 		dispatcher.forward(request, response);
 		
 	}
@@ -46,13 +46,14 @@ public class addMusic extends HttpServlet {
 		String musicID = commonUtil.generateMusicIDs(iMusicService.getMusicIDs());
 		
 		music.setMusicID(musicID);
+		//music.setMusicID(request.getParameter("musicID"));
 		music.setMusicName(request.getParameter("musicName"));
 		//music.setMusicTrack(request.getParameter("musicTrack"));
 		music.setMusicArtist(request.getParameter("musicArtist"));
 		
 		iMusicService.addMusic(music);
 		
-		String confirmString = "Music added!";
+		String confirmString = "Music added successfully!";
 		request.setAttribute("confirmString", confirmString);
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addMusic.jsp");

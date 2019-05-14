@@ -1,16 +1,13 @@
-
 <%@page import="com.onlinemusicstore.model.Music"%>
 <%@page import="com.onlinemusicstore.model.User"%>
-
 <jsp:include page="WEB-INF/views/header.jsp"/>
-
 <!DOCTYPE html>
 <html>
 <head>
 
-	 <%
-    	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-	 
+	  <%
+	  	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		 
 	 	User user = (User) session.getAttribute("currentSessionUser");
 	 
 	 	String confirm = (String) request.getAttribute("confirmString");
@@ -21,7 +18,7 @@
 		}
     %>
 
-	<title> ADD MUSIC | MUSICA </title>
+	<title> UPDATE MUSIC </title>
 	
 	<style>
 
@@ -34,14 +31,13 @@
         
 		body{
 			
-			margin: 0;
-			background: #313131;
+			margin: 0px;
 		}
         
         .mainArea{
             width: auto;
-            height: 800px;
-            padding-top: 100px;
+            height: 700px;
+            margin-top: 70px;
         }
         
         .sideBar{
@@ -114,51 +110,39 @@
 			border-radius: 5px;
 		}
         
-        
-        input[type="reset"]:hover{
-			color: red;
-			background-color: white;
-			border: 1px solid red;
-			border-radius: 5px;
-		}
-        
 
 	</style>
 	
 </head>
 <body>
     
-    <div class="mainArea" align = "center">
-        <div class="sideBar">
-        	<img src = "images/side.png" width = "280px" height="550px">
+    <div class="mainArea" align="center">
+        <div class="sideBar" align="center">
+        	<img src = "images/side.png" width = "280" height="550">
         </div>
-        <div class="content" align = "center">
+        <div class="content">
             
-			<font size = "10" ><b> ADD MUSIC </b></font>
+			<font size = "10" color = "black" ><b> UPDATE MUSIC </b></font>
+		
 			<br>
 			
 			<% if(confirm != null) { %>
         		<p style="color: green;" align="center"><br/><%= confirm %></p>
         	<%} %>
 			
-			<form method = "POST" action = "add-music">
+			<form method = "POST" action = "update-game">
 
-				  <input type = "text" name = "musicName" placeholder = "ADD Music Name" required/><br>
-				  <font  color = "#3090C7">
+				  <input type = "text" name = "musicID" placeholder = "Music Id of the Music you need to Change" required/><br>
+				 
+				  <input type = "text" name="musicName" placeholder="New Music Name*" required><br/>
 				  
 				  
-				  <!--  Select The Category of the Music:<br/></font>
-				  <input type = "radio" name = "category" value = "Action"  required/>Action &nbsp;
-				  <input type = "radio" name = "category" value = "Racing" required/>Racing &nbsp;
-				  <input type = "radio" name = "category" value = "Sport" required/>Sport &nbsp;
-				  <input type = "radio" name = "category" value = "Puzzle" required/>Puzzle &nbsp;
-				  <input type = "radio" name = "category" value = "Other" required/>Other <br/><br/>
-				  <input type = "text" name="codeTag" placeholder="Enter the  *No white Space*" required><br/>-->
 				  
-				  <input type = "text" name="musicArtist" placeholder="Enter Artist. Seperate with a space" required><br/><br/>
-				  <input type = "submit" value = "Add"/> &nbsp;
+				  <input type = "text" name="musicArtist" placeholder="New Music Artist" required><br/>
+				 
+				  <input type = "submit" value = "Update"/> &nbsp;
 				  <input type = "reset" value = "Reset"/> <br/> <br/>
-  
+				  
 			</form>
             
             <a href="edit-music"><button class="back" style="width: 180px;">Back</button></a>
