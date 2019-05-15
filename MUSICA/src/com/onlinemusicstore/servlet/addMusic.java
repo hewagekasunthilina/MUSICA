@@ -8,13 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.onlinemusicstore.model.User;
+
+
 import com.onlinemusicstore.model.Music;
-import com.onlinemusicstore.service.IUserService;
+
 import com.onlinemusicstore.service.IMusicService;
-import com.onlinemusicstore.service.UserServiceImpl;
+
 import com.onlinemusicstore.util.commonUtil;
 import com.onlinemusicstore.service.MusicServiceImpl;
 

@@ -27,23 +27,17 @@ public void addUser(User user) {
 			ps.setString(3, user.getLastName());
 			ps.setString(4, user.getGender());
 			ps.setString(5, user.getCountry());
-			ps.setString(6, user.getCountry());
-			ps.setString(7, user.getUserName());
-			ps.setString(8, user.getEmail());
-			ps.setInt(9, user.getMobileNumber());
+			ps.setString(6, user.getUserName());
+			ps.setString(7, user.getEmail());
+			ps.setInt(8, user.getMobileNumber());
+			ps.setString(9, user.getPassword());
 			ps.setString(10, user.getType());
+			
+			System.out.println(ps);
 			
 			ps.executeUpdate();
 			
-			// add data to useraccount table
-//			ps = DBConnection.getDBconnection().prepareStatement(addUserAccountQuery);
-//			
-//			ps.setString(1, user.getUserID());
-//			ps.setString(2, user.getUserName());
-//			ps.setString(3, user.getPassword());
-//			
-//			ps.executeUpdate();
-//			
+		
 			
 		} catch (ClassNotFoundException | SQLException e) {
 
