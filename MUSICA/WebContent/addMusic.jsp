@@ -1,15 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    
+
+<%@page import="com.onlinemusicstore.model.Music"%>
+<%@page import="com.onlinemusicstore.model.User"%>
+
+<jsp:include page="WEB-INF/views/header.jsp"/>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 
-<title>Dashboard | Musica</title>
+	 <%
+    	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+	 
+	 	User user = (User) session.getAttribute("currentSessionUser");
+	 
+	 	String confirm = (String) request.getAttribute("confirmString");
+	 	
+		if(user == null || user.getType().equals("user")){
+			
+			response.sendRedirect("index.jsp");
+		}
+    %>
 
-<style>
+	<title> ADD MUSIC | MUSICA </title>
+	
+	<style>
 
         h1{
 			color:black;
@@ -20,15 +34,14 @@
         
 		body{
 			
-			margin: 0px;
+			margin: 0;
 			background: #313131;
 		}
         
         .mainArea{
             width: auto;
-            height: 700px;
-            margin-top: 70px;
-            
+            height: 800px;
+            padding-top: 100px;
         }
         
         .sideBar{
@@ -56,7 +69,6 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
             float: right;
             text-align = left;
-            
         }
         
         input[type="text"], input[type="email"]{
@@ -109,104 +121,52 @@
 			border: 1px solid red;
 			border-radius: 5px;
 		}
-		
-		/*dropdown*/
-		
-		.dropbtn {
-		  background-color: #D8A6F9;
-		  color: white;
-		  padding: 16px;
-		  font-size: 16px;
-		  border: none;
-		  border-radius: 10px;
-		  width:200px;
-}
-
-		.dropdown {
-		  position: relative;
-		  display: inline-block;
-}
-
-		.dropdown-content {
-		  display: none;
-		  position: absolute;
-		  background-color: #f1f1f1;
-		  min-width: 200px;
-		  box-shadow: 0px 8px 16px 0px rgba(0,0,0,1.2);
-		  z-index: 1;
-		  border-radius: 10px;
-		  margin-top:4px;
-}
-
-		.dropdown-content a {
-		  color: black;
-		  padding: 12px 16px;
-		  text-decoration: none;
-		  display: block;
-		  text-align: center;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
         
 
 	</style>
-
+	
 </head>
 <body>
-
-<div class="mainArea" align="center">
-        <div class="sideBar" align="center">
+    
+    <div class="mainArea" align = "center">
+        <div class="sideBar">
         	<img src = "images/side.png" width = "280px" height="550px">
         </div>
-        <div class="content">
+        <div class="content" align = "center">
             
-			<font size = "10" font-weight: 600;><b> DASBOARD </b></font>
+			<font size = "10" ><b> ADD MUSIC </b></font>
 			<br>
 			
+			<% if(confirm != null) { %>
+        		<p style="color: green;" align="center"><br/><%= confirm %></p>
+        	<%} %>
 			
-        		<p style="color: green;" align="center"><br/></p>
-        	
-			<div class="dropdown">
-  				<button class="dropbtn">Music</button>
-  					<div class="dropdown-content">
-    					<a href="addMusic.jsp">Add Music</a>
-    					<a href="updateMusic.jsp">Update Music</a>
-    					<a href="removeMusic.jsp">Remove Music</a>
-    					
- 					 </div>
- 		    </div>
- 		    
- 		    <div class="dropdown">
-  				<button class="dropbtn">Instrument</button>
-  					<div class="dropdown-content">
-    					<a href="addInstrument.jsp">Add Instrument</a>
-    					<a href="updateInstrument.jsp">Update Instrument</a>
-    					<a href="removeInstrument.jsp">Remove Instrument</a>
-    					
- 					 </div>
- 		    </div>
- 		    
- 		    <div class="dropdown">
-  				<button class="dropbtn">User</button>
-  					<div class="dropdown-content">
-    					<a href="addUser.jsp">Add User</a>
-    					<a href="updateUser.jsp">Update User</a>
-    					<a href="removeUser.jsp">Remove User</a>
-    					
- 					 </div>
- 		    </div>
- 		 
- 		  
+			<form method = "POST" action = "add-music">
+
+				  <input type = "text" name = "musicName" placeholder = "ADD Music Name" required/><br>
+				  <font  color = "#3090C7">
+				  
+				  
+				  <!--  Select The Category of the Music:<br/></font>
+				  <input type = "radio" name = "category" value = "Action"  required/>Action &nbsp;
+				  <input type = "radio" name = "category" value = "Racing" required/>Racing &nbsp;
+				  <input type = "radio" name = "category" value = "Sport" required/>Sport &nbsp;
+				  <input type = "radio" name = "category" value = "Puzzle" required/>Puzzle &nbsp;
+				  <input type = "radio" name = "category" value = "Other" required/>Other <br/><br/>
+				  <input type = "text" name="codeTag" placeholder="Enter the  *No white Space*" required><br/>-->
+				  
+				  <input type = "text" name="musicArtist" placeholder="Enter Artist. Seperate with a space" required><br/><br/>
+				  <input type = "submit" value = "Add"/> &nbsp;
+				  <input type = "reset" value = "Reset"/> <br/> <br/>
+  
+			</form>
             
             <a href="edit-music"><button class="back" style="width: 180px;">Back</button></a>
-            <a href="Logout"><button class="back" style="width: 180px;">Logout</button></a>
             
         </div>
     </div>
-
+    
+    <jsp:include page="WEB-INF/views/footer.jsp"/>
+    
 </body>
 </html>

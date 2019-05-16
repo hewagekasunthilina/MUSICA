@@ -3,7 +3,7 @@ package com.onlinemusicstore.model;
 
 public class User {
 
-	private int userID;
+	private String userID;
 	private String firstName;
 	private String lastName;
 	private String gender;
@@ -14,11 +14,13 @@ public class User {
 	private String password;
 	private String type = null;
 	public boolean valid;
-	public int getUserID() {
+	
+	
+	public String getUserID() {
 		return userID;
 	}
-	public void setUserID(int i) {
-		this.userID = i;
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -44,7 +46,6 @@ public class User {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
 	public String getUserName() {
 		return userName;
 	}
@@ -81,6 +82,12 @@ public class User {
 	public void setValid(boolean valid) {
 		this.valid = valid;
 	}
+	public void setMobileNumber(String parameter) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 	
 	
 	
