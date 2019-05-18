@@ -1,4 +1,4 @@
-package jdbc;
+package com.onlinemusicstore.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Signup
+ * Servlet implementation class Logout
  */
-@WebServlet("/Signup")
-public class Signup extends HttpServlet {
+@WebServlet("/Logout")
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public Signup() {
+    public Logout() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -25,8 +26,9 @@ public class Signup extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.getSession(false).invalidate();
+		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	/**
@@ -35,6 +37,8 @@ public class Signup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		
 	}
 
 }

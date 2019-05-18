@@ -10,10 +10,12 @@ public class User {
 	private String country;
 	private String userName;
 	private String email;
-	private String mobileNumber;
+	private int mobileNumber;
 	private String password;
 	private String type = null;
 	public boolean valid;
+	
+	
 	public String getUserID() {
 		return userID;
 	}
@@ -44,7 +46,6 @@ public class User {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
 	public String getUserName() {
 		return userName;
 	}
@@ -57,10 +58,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getMobileNumber() {
+	public int getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(String mobileNumber) {
+	public void setMobileNumber(int mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	public String getPassword() {
@@ -81,6 +82,12 @@ public class User {
 	public void setValid(boolean valid) {
 		this.valid = valid;
 	}
+	public void setMobileNumber(String parameter) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 	
 	
 	

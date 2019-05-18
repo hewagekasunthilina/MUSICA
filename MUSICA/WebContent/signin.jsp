@@ -107,18 +107,18 @@
         
 		<form method="POST" action="Signup">
 			<div>
-				<input type="text" placeholder="Enter your firstname" name="firstname" required><br/>
-				<input type="text" placeholder="Enter your lastname" name="lastname" required><br/>
-				<input type="text" placeholder="Enter your gender" name="gender" required><br/>
-				<input type="text" placeholder="Enter your country" name="country" required><br/>
-				<input type="text" placeholder="Enter your lastname" name="userName" required><br/>
-				<input type="text" placeholder="Enter your email" name="email" required><br/>
-				<input type="text" placeholder="Enter your mobilenumber" name="mobilenumber" required><br/>
-				<input type="Password" placeholder="Enter your Password" name="Password_1" required><br/>
-				<input type="Password" placeholder="Re-type your Password" name="Password_2" required><br/>
+				<input type="text" placeholder="Enter Your Firstname" name="firstname" required><br/>
+				<input type="text" placeholder="Enter Your lastname" name="lastname" required><br/>
+				<input type="text" placeholder="Enter Your Gender" name="gender" required><br/>
+				<input type="text" placeholder="Enter Your Country" name="country" required><br/>
+				<input type="text" placeholder="Enter Your Username" name="userName" required><br/>
+				<input type="text" placeholder="Enter Your Email" name="email" required><br/>
+				<input type="text" placeholder="Enter Your Mobile" name="mobilenumber" required><br/>
+				<input type="Password" placeholder="Enter Your Password" name="Password" required><br/>
+				<input type="Password" placeholder="RE-Type Your Password" name="Password_2" required><br/>
                 
 				<input type="submit" name="sign up" value="Signup"><br/><br/>
-                <span>Allready a member? <a href="login">Login</a></span> <br/> <br/>
+                <span>Allready a member? <a href="login.jsp">Login</a></span> <br/> <br/>
             </div>
 		</form>
 	</div>
