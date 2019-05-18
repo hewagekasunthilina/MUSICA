@@ -33,8 +33,6 @@ public void addUser(User user) {
 			ps.setString(9, user.getPassword());
 			ps.setString(10, user.getType());
 			
-			System.out.println(ps);
-			
 			ps.executeUpdate();
 			
 		
@@ -60,10 +58,11 @@ public void addUser(User user) {
 			ps.setString(2, user.getLastName());
 			ps.setString(3, user.getGender());
 			ps.setString(4, user.getCountry());
-			ps.setString(5, user.getCountry());
+			ps.setString(5, user.getUserName());
 			ps.setString(6, user.getEmail());
 			ps.setInt(7, user.getMobileNumber());
-			ps.setString(8, user.getUserID());
+			ps.setString(8, user.getType());
+			ps.setString(9, user.getUserID());
 			
 			ps.executeUpdate();
 			
@@ -124,58 +123,6 @@ public void addUser(User user) {
 
 	}
 	
-	public String getPassword(String userID) {
-		
-		String password = null;
-		String getPasswordQuery = "SELECT * FROM user WHERE userID = ?";
-		
-		try {
-			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(getPasswordQuery);
-			
-			ps.setString(1, userID);
-			
-			ResultSet resultSet = ps.executeQuery();
-			
-			if(resultSet.next()) {
-				
-				password = resultSet.getString(3);
-			}
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		
-		return password;
-	}
-	
-	public void updatePassword(String userID, String password) {
-		
-		String updateUserPasswordQuery = "UPDATE user SET password = ? WHERE userID = ?";
-		String updateUserRecoveryPasswordQuery = "UPDATE passwordrecovery SET password = ? WHERE userID = ?";
-		
-		try {
-			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(updateUserPasswordQuery);
-			
-			ps.setString(1, password);
-			ps.setString(2, userID);
-			
-			ps.executeUpdate();
-			
-			
-			ps = DBConnection.getDBconnection().prepareStatement(updateUserRecoveryPasswordQuery);
-			
-			ps.setString(1, password);
-			ps.setString(2, userID);
-			
-			ps.executeUpdate();
-			
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	// retrieve user from DB
 	public ArrayList<User> getUser(String userID){
@@ -241,27 +188,19 @@ public void addUser(User user) {
 	}
 	
 	
-	public void deleteUser(String userID) {
+	public void removeUser(User user) {
 		
-		String deleteUserQuery = "DELETE FROM user WHERE userID = ?";
-		String deleteUserAccountQuery = "DELETE FROM user WHERE userID = ?";
-		String deleteFavouriteQuery = "DELETE FROM favourite WHERE userID = ?";
+		String removeUserQuery = "DELETE FROM user WHERE userID = ? and firstName = ?";	
 		
 		try {
 			
-			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(deleteUserQuery);
-			ps.setString(1, userID);
+			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(removeUserQuery);
+			
+			ps.setString(1, user.getUserID());
+			ps.setString(2, user.getFirstName());
+			
 			ps.executeUpdate();
-			
-			ps = DBConnection.getDBconnection().prepareStatement(deleteUserAccountQuery);
-			ps.setString(1, userID);
-			ps.executeUpdate();
-			
-			ps = DBConnection.getDBconnection().prepareStatement(deleteFavouriteQuery);
-			ps.setString(1, userID);
-			ps.executeUpdate();
-			
-			
+					
 		} catch (ClassNotFoundException | SQLException e) {
 
 			e.printStackTrace();
@@ -281,6 +220,11 @@ public void addUser(User user) {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+
+
 
 
 	
