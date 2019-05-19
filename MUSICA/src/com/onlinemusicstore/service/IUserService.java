@@ -20,7 +20,7 @@ public interface IUserService {
 	
 	public ArrayList<String> getUserIDs();
 	
-	public void deleteUser(String userID);
+	public void removeUser(User user);
 	
 	
 	
