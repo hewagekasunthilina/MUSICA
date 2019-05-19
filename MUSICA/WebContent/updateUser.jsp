@@ -1,3 +1,4 @@
+<%@page import="com.onlinemusicstore.model.Music"%>
 <%@page import="com.onlinemusicstore.model.User"%>
 <jsp:include page="WEB-INF/views/header.jsp"/>
 <!DOCTYPE html>
@@ -5,10 +6,10 @@
 <head>
 
 	  <%
-    	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-	  
-	  	User user = (User) session.getAttribute("currentSessionUser");
+	  	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		 
+	 	User user = (User) session.getAttribute("currentSessionUser");
+	 
 	 	String confirm = (String) request.getAttribute("confirmString");
 	 	
 		if(user == null || user.getType().equals("user")){
@@ -17,7 +18,7 @@
 		}
     %>
 
-	<title> REMOVE USER | MUSICA </title>
+	<title> UPDATE USER </title>
 	
 	<style>
 
@@ -30,13 +31,15 @@
         
 		body{
 			
-			margin: 0;
-			padding: 0;
+			margin: 0px;
+			
+			
 		}
         
         .mainArea{
             width: auto;
             height: 700px;
+            margin-top: 70px;
             padding-top: 100px;
         }
         
@@ -110,14 +113,6 @@
 			border-radius: 5px;
 		}
         
-        
-        input[type="reset"]:hover{
-			color: red;
-			background-color: white;
-			border: 1px solid red;
-			border-radius: 5px;
-		}
-        
 
 	</style>
 	
@@ -126,36 +121,38 @@
     
     <div class="mainArea" align="center">
         <div class="sideBar" align="center">
-        	<img src = "images/side.png" width = "280px" height="550px">
+        	<img src = "images/side.png" width = "280" height="550">
         </div>
         <div class="content">
             
-			<font size = "10" ><b> REMOVE USER </b></font>
+			<font size = "10" color = "black" ><b> UPDATE USER </b></font>
+		
 			<br>
 			
 			<% if(confirm != null) { %>
         		<p style="color: green;" align="center"><br/><%= confirm %></p>
         	<%} %>
 			
-			<form method = "POST" action = "remove-music">
+			<form method = "POST" action = "update-music">
 
-				  <input type = "text" name = "firstName" placeholder = "ADD Music Name" required/><br>
-				  <input type = "text" name = "lastName" placeholder = "ADD Music Name" required/><br>
-				  <input type = "text" name = "gender" placeholder = "ADD Music Name" required/><br>
-				  <input type = "text" name = "country" placeholder = "ADD Music Name" required/><br>
-				  <input type = "text" name = "userName" placeholder = "ADD Music Name" required/><br>
-				  <input type = "text" name = "email" placeholder = "ADD Music Name" required/><br>
-				  <input type = "text" name = "mobileNo" placeholder = "ADD Music Name" required/><br>
-				  <input type = "text" name = "password" placeholder = "ADD Music Name" required/><br>
+				  <input type = "text" name = "userID" placeholder = "User Id of the User you need to Change" required/><br>
 				 
-				  <input type = "text" name="musicID" placeholder="Enter the Music ID*" required><br/>
+				  <input type = "text" name="firstName" placeholder="New First Name*" required><br/>
+				  <input type = "text" name="lastName" placeholder="New Last Name*" required><br/>
+				  <input type = "text" name="gender" placeholder="New Gender*" required><br/>
+				  <input type = "text" name="country" placeholder="New Country*" required><br/>
+				  <input type = "text" name="userName" placeholder="New User Name*" required><br/>
+				  <input type = "text" name="email" placeholder="New Email*" required><br/>
+				  <input type = "text" name="mobileNo" placeholder="New Mobile Number*" required><br/>
+				  <input type = "text" name="password" placeholder="New Password" required><br/>
+				  <input type = "text" name="type" placeholder="New Type*" required><br/>
 				 
-				  <input type = "submit" value = "Remove"/> &nbsp;
+				  <input type = "submit" value = "Update"/> &nbsp;
 				  <input type = "reset" value = "Reset"/> <br/> <br/>
 				  
 			</form>
             
-            <a href="edit-game"><button class="back" style="width: 180px;">Back</button></a>
+            <a href="edit-user"><button class="back" style="width: 180px;">Back</button></a>
             
         </div>
     </div>

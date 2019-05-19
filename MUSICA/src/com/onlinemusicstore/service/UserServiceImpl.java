@@ -15,7 +15,6 @@ public class UserServiceImpl implements IUserService{
 public void addUser(User user) {
 		
 		String addUserQuery = "INSERT INTO user VALUES(?,?,?,?,?,?,?,?,?,?)";
-		//String addUserAccountQuery = "INSERT INTO useraccount VALUES(?,?,?)";
 		
 		
 		try {
@@ -47,9 +46,7 @@ public void addUser(User user) {
 
 	public User updateUser(User user) {
 		
-		String updateUserQuery = "UPDATE user "
-				+ "SET firstName = ?, lastName = ?, gender = ?, country = ?, email = ?, mobileNumber = ? "
-				+ "WHERE userID = ?";
+		String updateUserQuery = "UPDATE user SET firstName =?, lastName =?, gender =?, country =?, userName =?, email =?, mobileNo =?, password =?, type =? WHERE userID =?";	//writing Quarry to update user table
 		
 		try {
 			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(updateUserQuery);
