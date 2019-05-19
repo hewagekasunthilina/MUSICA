@@ -133,7 +133,7 @@
         		<p style="color: green;" align="center"><br/><%= confirm %></p>
         	<%} %>
 			
-			<form method = "POST" action = "update-music">
+			<form method = "POST" action = "update-user">
 
 				  <input type = "text" name = "userID" placeholder = "User Id of the User you need to Change" required/><br>
 				 

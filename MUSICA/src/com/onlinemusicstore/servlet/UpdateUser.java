@@ -54,6 +54,7 @@ public class UpdateUser extends HttpServlet {
 		user.setEmail(request.getParameter("email"));
 		user.setMobileNumber(request.getParameter("mobileNo"));
 		user.setPassword(request.getParameter("password"));
+		user.setType(request.getParameter("type"));
 			
 		IUserService iUserService = new UserServiceImpl();
 		iUserService.updateUser(user);

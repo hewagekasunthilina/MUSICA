@@ -58,8 +58,9 @@ public void addUser(User user) {
 			ps.setString(5, user.getUserName());
 			ps.setString(6, user.getEmail());
 			ps.setInt(7, user.getMobileNumber());
-			ps.setString(8, user.getType());
-			ps.setString(9, user.getUserID());
+			ps.setString(8, user.getPassword());
+			ps.setString(9, user.getType());
+			ps.setString(10, user.getUserID());
 			
 			ps.executeUpdate();
 			
