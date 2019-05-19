@@ -134,28 +134,25 @@
         </div>
         <div class="content" align = "center">
             
-			<font size = "10" ><b> ADD MUSIC </b></font>
+			<font size = "10" ><b> ADD NEW USER </b></font>
 			<br>
 			
 			<% if(confirm != null) { %>
         		<p style="color: green;" align="center"><br/><%= confirm %></p>
         	<%} %>
 			
-			<form method = "POST" action = "add-music">
+			<form method = "POST" action = "add-user">
 
-				  <input type = "text" name = "musicName" placeholder = "ADD Music Name" required/><br>
-				  <font  color = "#3090C7">
+				  <input type = "text" name = "firstName" placeholder = "Add First Name" required/><br>
+				  <input type = "text" name="lastName" placeholder="Add Last Name" required><br/><br/>
+				  <input type = "text" name="gender" placeholder="Add Gender" required><br/><br/>
+				  <input type = "text" name="country" placeholder="Add Country" required><br/><br/>
+				  <input type = "text" name="userName" placeholder="Add User Name" required><br/><br/>
+				  <input type = "text" name="email" placeholder="Add Email" required><br/><br/>
+				  <input type = "text" name="mobileNo" placeholder="Add Mobile Number" required><br/><br/>
+				  <input type = "text" name="password" placeholder="Add Password" required><br/><br/>
+				  <input type = "text" name="type" placeholder="Add Type" required><br/><br/>
 				  
-				  
-				  <!--  Select The Category of the Music:<br/></font>
-				  <input type = "radio" name = "category" value = "Action"  required/>Action &nbsp;
-				  <input type = "radio" name = "category" value = "Racing" required/>Racing &nbsp;
-				  <input type = "radio" name = "category" value = "Sport" required/>Sport &nbsp;
-				  <input type = "radio" name = "category" value = "Puzzle" required/>Puzzle &nbsp;
-				  <input type = "radio" name = "category" value = "Other" required/>Other <br/><br/>
-				  <input type = "text" name="codeTag" placeholder="Enter the  *No white Space*" required><br/>-->
-				  
-				  <input type = "text" name="musicArtist" placeholder="Enter Artist. Seperate with a space" required><br/><br/>
 				  <input type = "submit" value = "Add"/> &nbsp;
 				  <input type = "reset" value = "Reset"/> <br/> <br/>
   

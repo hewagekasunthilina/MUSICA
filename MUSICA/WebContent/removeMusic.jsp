@@ -1,18 +1,14 @@
-
-<%@page import="com.onlinemusicstore.model.Music"%>
 <%@page import="com.onlinemusicstore.model.User"%>
-
 <jsp:include page="WEB-INF/views/header.jsp"/>
-
 <!DOCTYPE html>
 <html>
 <head>
 
-	 <%
+	  <%
     	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-	 
-	 	User user = (User) session.getAttribute("currentSessionUser");
-	 
+	  
+	  	User user = (User) session.getAttribute("currentSessionUser");
+		 
 	 	String confirm = (String) request.getAttribute("confirmString");
 	 	
 		if(user == null || user.getType().equals("user")){
@@ -21,7 +17,7 @@
 		}
     %>
 
-	<title> ADD MUSIC | MUSICA </title>
+	<title> REMOVE MUSIC | MUSICA </title>
 	
 	<style>
 
@@ -35,12 +31,12 @@
 		body{
 			
 			margin: 0;
-			background: #313131;
+			padding: 0;
 		}
         
         .mainArea{
             width: auto;
-            height: 800px;
+            height: 700px;
             padding-top: 100px;
         }
         
@@ -128,40 +124,31 @@
 </head>
 <body>
     
-    <div class="mainArea" align = "center">
-        <div class="sideBar">
+    <div class="mainArea" align="center">
+        <div class="sideBar" align="center">
         	<img src = "images/side.png" width = "280px" height="550px">
         </div>
-        <div class="content" align = "center">
+        <div class="content">
             
-			<font size = "10" ><b> ADD MUSIC </b></font>
+			<font size = "10" ><b> REMOVE MUSIC </b></font>
 			<br>
 			
 			<% if(confirm != null) { %>
         		<p style="color: green;" align="center"><br/><%= confirm %></p>
         	<%} %>
 			
-			<form method = "POST" action = "add-music">
+			<form method = "POST" action = "remove-music">
 
 				  <input type = "text" name = "musicName" placeholder = "ADD Music Name" required/><br>
-				  <font  color = "#3090C7">
-				  
-				  
-				  <!--  Select The Category of the Music:<br/></font>
-				  <input type = "radio" name = "category" value = "Action"  required/>Action &nbsp;
-				  <input type = "radio" name = "category" value = "Racing" required/>Racing &nbsp;
-				  <input type = "radio" name = "category" value = "Sport" required/>Sport &nbsp;
-				  <input type = "radio" name = "category" value = "Puzzle" required/>Puzzle &nbsp;
-				  <input type = "radio" name = "category" value = "Other" required/>Other <br/><br/>
-				  <input type = "text" name="codeTag" placeholder="Enter the  *No white Space*" required><br/>-->
-				  
-				  <input type = "text" name="musicArtist" placeholder="Enter Artist. Seperate with a space" required><br/><br/>
-				  <input type = "submit" value = "Add"/> &nbsp;
+				 
+				  <input type = "text" name="musicID" placeholder="Enter the Music ID*" required><br/>
+				 
+				  <input type = "submit" value = "Remove"/> &nbsp;
 				  <input type = "reset" value = "Reset"/> <br/> <br/>
-  
+				  
 			</form>
             
-            <a href="edit-music"><button class="back" style="width: 180px;">Back</button></a>
+            <a href="edit-game"><button class="back" style="width: 180px;">Back</button></a>
             
         </div>
     </div>

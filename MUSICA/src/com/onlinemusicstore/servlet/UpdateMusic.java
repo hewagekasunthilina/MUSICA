@@ -9,56 +9,53 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
 import com.onlinemusicstore.model.Music;
-
 import com.onlinemusicstore.service.IMusicService;
-
-import com.onlinemusicstore.util.commonUtil;
 import com.onlinemusicstore.service.MusicServiceImpl;
 
-
-@WebServlet("/add-music")
-public class addMusic extends HttpServlet {
+/**
+ * Servlet implementation class upgateGane
+ */
+@WebServlet("/update-music")
+public class UpdateMusic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
-    public addMusic() {
+ 
+	
+    public UpdateMusic() {
         super();
-        // TODO Auto-generated constructor stub
+       
     }
 
-
+	
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addMusic");
+    	
+    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateMusic.jsp");
 		dispatcher.forward(request, response);
 		
-	}
-    
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	
-    	Music music = new Music();
-		IMusicService iMusicService = new MusicServiceImpl();
-		String musicID = commonUtil.generateMusicIDs(iMusicService.getMusicIDs());
 		
-		music.setMusicID(musicID);
-		//music.setMusicID(request.getParameter("musicID"));
+		
+		
+    }
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		Music music = new Music();
+		
+		music.setMusicID(request.getParameter("musicID"));
 		music.setMusicName(request.getParameter("musicName"));
 		//music.setMusicTrack(request.getParameter("musicTrack"));
 		music.setMusicArtist(request.getParameter("musicArtist"));
+			
+		IMusicService iMusicService = new MusicServiceImpl();
+		iMusicService.updateMusic(music);
 		
-		iMusicService.addMusic(music);
-		
-		String confirmString = "Music added successfully!";
+		String confirmString = "Music updated!";
 		request.setAttribute("confirmString", confirmString);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addMusic.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateMusic.jsp");
 		dispatcher.forward(request, response);
-    	
-    }
+	}
 
 }
