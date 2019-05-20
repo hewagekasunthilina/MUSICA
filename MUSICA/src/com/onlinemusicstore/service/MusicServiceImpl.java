@@ -29,14 +29,6 @@ public class MusicServiceImpl implements IMusicService {
 			 System.out.println(ps);
 			
 			
-			//ps = DBConnection.getDBconnection().prepareStatement(addGameURLQuery);
-			
-//			ps.setString(1, game.getGameID());
-//			ps.setString(2, game.getgamecode());
-//			
-//			ps.executeUpdate();
-			
-			
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -73,7 +65,7 @@ public class MusicServiceImpl implements IMusicService {
 	public void removeMusic(Music music ) {
 
 		String removeMusicQuery = "DELETE from songs WHERE  musicID = ? and musicName = ?";
-		//String removeGameURLQuery = "DELETE from gameurl WHERE  gameID = ?";
+		
 			
 		try {
 			PreparedStatement ps = DBConnection.getDBconnection().prepareStatement(removeMusicQuery);
@@ -83,12 +75,6 @@ public class MusicServiceImpl implements IMusicService {
 			
 			ps.executeUpdate();
 			
-			
-		//ps = DBConnection.getDBconnection().prepareStatement(removeGameURLQuery);
-			
-//			ps.setString(1, game.getGameID());
-//			
-//			ps.executeUpdate();
 			
 			} catch (ClassNotFoundException | SQLException e) {
 				// TODO Auto-generated catch block
