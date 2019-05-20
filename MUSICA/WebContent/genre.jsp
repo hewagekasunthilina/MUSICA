@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+<%@page import="com.onlinemusicstore.service.GenreServiceImpl"%>
+<%@page import="com.onlinemusicstore.service.GenreService"%>
+<%@page import="com.onlinemusicstore.model.Genre"%>   
+
 <jsp:include page="WEB-INF/views/header.jsp"/> <!--Header-->    
 <!DOCTYPE html>
 <html>
@@ -122,6 +125,13 @@ html {
 </head>
 <body>
 <section>
+
+<%
+	
+GenreServiceImpl  a =new GenreServiceImpl();
+	
+%>
+<form method="POST" action="GenreServlet">
 <div class="new">
 
 </div><div class="column">
@@ -129,11 +139,11 @@ html {
     <img src="images/edm.jpg" alt="Sohan" style="width:100%">
     <div class="container">
       
-      <p class="area">100+ Songs</p>
+      <p class="area"><%=a.getsongCount("edm")%>Songs</p>
       <div class="rating">
       
       </div>
-      <P><button class="button1">Check Songs</button></p>
+      <P><a><button value="edm" class="button1">Check Songs</button></a></p>
     </div>
   </div>
 </div>
@@ -142,11 +152,11 @@ html {
   <div class="card">
     <img src="images\rock.jpg" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area">100+ Songs</p>
+      <p class="area"><%=a.getsongCount("rock")%> Songs</p>
       <div class="rating">
 
       </div>
-      <P><button class="button1">Check Songs</button></p>
+      <P><button value="rock"  class="button1">Check Songs</button></p>
     </div>
   </div>
 </div>
@@ -155,11 +165,11 @@ html {
   <div class="card">
     <img src="images\hiphop.jpg" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area">100+ Songs</p>
+      <p class="area"><%=a.getsongCount("hiphop")%> Songs</p>
       <div class="rating">
        
       </div>
-      <P><button class="button1">Check Songs</button></p>
+      <P><button value="hiphop" class="button1">Check Songs</button></p>
     </div>
   </div>
 </div>
@@ -169,11 +179,11 @@ html {
   <div class="card">
     <img src="images\jazz.jpg" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area">100+ Songs</p>
+      <p class="area"><%=a.getsongCount("jazz")%> Songs</p>
       <div class="rating">
      
       </div>
-      <P><button class="button1">Check Songs</button></p>
+      <P><button value="jazz" class="button1">Check Songs</button></p>
     </div>
   </div>
 </div>
@@ -182,11 +192,11 @@ html {
   <div class="card">
     <img src="images\rap.jpg" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area">100+ Songs</p>
+      <p class="area"><%=a.getsongCount("rap")%> Songs</p>
       <div class="rating">
    
       </div>
-      <P><button class="button1">Check Songs</button></p>
+      <P><button value="rap"  class="button1">Check Songs</button></p>
     </div>
   </div>
 </div>
@@ -195,11 +205,11 @@ html {
   <div class="card">
     <img src="images\rnb.png" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area">100+ Songs</p>
+      <p class="area"><%=a.getsongCount("rnb")%> Songs</p>
       <div class="rating">
         
       </div>
-      <P><button class="button1">Check Songs</button></p>
+      <P><button value="rnb"  class="button1">Check Songs</button></p>
     </div>
   </div>
 </div>
@@ -207,16 +217,16 @@ html {
 <div class="column">
   <div class="card">
     <img src="images\cm.png" alt="Sohan" style="width:100%">
-    <div class="container">
-      <p class="area">100+ Songs</p>
+    <div class="container">S
+      <p class="area"><%=a.getsongCount("cm")%> Songs</p>
       <div class="rating">
  
       </div>
-      <P><button class="button1">Check Songs</button></p>
+      <P><button value="cm" class="button1">Check Songs</button></p>
     </div>
   </div>
 </div>
-</div>
+</form>
 </section>
 </body>
 </html>

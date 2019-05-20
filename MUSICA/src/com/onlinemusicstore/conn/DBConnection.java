@@ -14,7 +14,7 @@ public class DBConnection {
 		
 		//Server connection parameters
 		String driver="com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/musica";
+		String url = "jdbc:mysql://localhost:8080/database";
 		String username = "root";
 		String password = "root";
 		

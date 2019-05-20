@@ -2,7 +2,7 @@
 <%@page import="com.onlinemusicstore.service.IUserService"%>
 <%@page import="com.onlinemusicstore.service.UserServiceImpl"%>
 <%@page import="javax.servlet.http.HttpSession"%>
-<%@page import="java.util.ArrayList"%>
+
 <jsp:include page="WEB-INF/views/header.jsp"/>
 <!DOCTYPE html>
 <html>
