@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+ <%@page import="com.onlinemusicstore.service.GenreServiceImpl"%>
+<%@page import="com.onlinemusicstore.service.GenreService"%>
+<%@page import="com.onlinemusicstore.model.Genre"%>   
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,38 +13,23 @@
 </head>
 <body>
 
-EDM Songs <br/>
-<br/>
-Song Name   : Levels <br/>
-Song Artist : Avicii <br/>
-Song BPM    : 138  <br/>
-<br/>
-<audio controls>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="audio/levels.mp3" type="audio/mp3">
-</audio>
-<br/>
-Song Name   : Spaceman <br/>
-Song Artist : Hardwell <br/>
-Song BPM    : 140 <br/>
-<br/>
-<audio controls>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="audio/levels.mp3" type="audio/mp3">
-</audio>
-<br/>
+<%
+	String gen =Integer.parseString(request.getParameter("button"));
+	GenreService b =new GenreServiceImpl();
+	
+%>
 
+<% out.println(getSongGenre(songGenre));%> Songs <br/>
 <br/>
-Song Name   : Dont you worry child <br/>
-Song Artist : House Mafia <br/>
-Song BPM    : 124 <br/>
+Song Name   :<% out.println(b.getSongName(songName));%><br/>
+Song Artist :<% out.println(b.getSongArtist(songArtist)); %><br/>
+Song BPM    :<% out.println(b.getSongBpm(songBpm));%> <br/>
 <br/>
 <audio controls>
-  <source src="horse.ogg" type="audio/ogg">
-  <source src="audio/Don't You Worry Child.mp3" type="audio/mp3">
+
+  <source src="audio/<%=b.getSongName(songName);%> .mp3" type="audio/mp3">
 </audio>
 <br/>
-
 
 </body>
 </html>
