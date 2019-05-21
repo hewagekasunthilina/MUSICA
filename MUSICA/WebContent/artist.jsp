@@ -129,38 +129,38 @@
 	}
 
 	.xop-img-1{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/akira.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist1.png);
 	}
 
 	.xop-img-2{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/aksar.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist2.png);
 	}
 
 	.xop-img-3{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/fanaa.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist3.png);
 	}
 
 	.xop-img-4{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/he_arose.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist4.png);
 	}
 
 	.xop-img-5{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/sardaar.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist5.png);
 	}
 	.xop-img-6{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/shaandaar.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist6.png);
 	}
 	.xop-img-7{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/switchfoot.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist7.png);
 	}
 	.xop-img-8{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/tamaasha.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist8.png);
 	}
 	.xop-img-9{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/tere_mere.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist9.png);
 	}
 	.xop-img-10{
-		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/third_day.jpg);
+		background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.10)), url(images/SArtist10.png);
 	}
 	
 
