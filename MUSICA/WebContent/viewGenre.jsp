@@ -4,14 +4,15 @@
  <%@page import="com.onlinemusicstore.service.GenreServiceImpl"%>
 <%@page import="com.onlinemusicstore.service.GenreService"%>
 <%@page import="com.onlinemusicstore.model.Genre"%>   
-
+<jsp:include page="WEB-INF/views/header.jsp"/> <!--Header-->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>ViewGenre</title>
 </head>
 <body>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 <%
 	String gen =Integer.parseString(request.getParameter("button"));

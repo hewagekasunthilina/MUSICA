@@ -73,4 +73,60 @@ public class GenreServiceImpl  implements GenreService {
 		return list;
 	}
 
+	public String addGenre(Genre songName, Genre songArtist, int songBpm, Genre songGenre ) {
+		
+		String query = "INSERT INTO genre VALUES(?,?,?,?)";
+		PreparedStatement ps;
+		
+		
+		int i = 0;
+		try {
+			ps = DBConnection.getDBconnection().prepareStatement(query1);
+			ResultSet rs=ps.executeQuery();
+			String id = null;
+			while(rs.next()) {
+				
+				id=rs.getString(1);
+				if(id==null) {
+					id="0";
+				}
+				
+				
+			}
+			int itemId=Integer.parseInt(id)+1;
+			// add data to user table
+			ps = DBConnection.getDBconnection().prepareStatement(query);
+			Genre n = new Genre();
+			ps.setInt(1, songBpm);
+			ps.setString(2,n.getSongName());
+			ps.setString(3,n.getSongArtist());
+			ps.setString(4,n.getSongGenre());
+			
+			
+			
+			i = ps.executeUpdate();
+			
+		
+			
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		String status;
+		if(i!=0) {
+			 status ="success";
+		}
+		else {
+			status="Error";
+		}
+		return status;
+	}
+
+
+	@Override
+	public String addGenre(Genre songName, Genre songArtist, Genre songBpm, Genre songGenre) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

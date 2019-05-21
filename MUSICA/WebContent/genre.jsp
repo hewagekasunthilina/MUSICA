@@ -128,7 +128,9 @@ html {
 
 <%
 	
-GenreServiceImpl  a =new GenreServiceImpl();
+     GenreService  a =new GenreServiceImpl();
+     int count = a.getsongCount("songGenre");
+	 request.setAttribute("songGenre",count);
 	
 %>
 <form method="POST" action="GenreServlet">
@@ -139,7 +141,7 @@ GenreServiceImpl  a =new GenreServiceImpl();
     <img src="images/edm.jpg" alt="Sohan" style="width:100%">
     <div class="container">
       
-      <p class="area"><%=a.getsongCount("edm")%>Songs</p>
+      <p class="area"><%out.println(a.getsongCount("edm"));%>Songs</p>
       <div class="rating">
       
       </div>
@@ -152,7 +154,7 @@ GenreServiceImpl  a =new GenreServiceImpl();
   <div class="card">
     <img src="images\rock.jpg" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area"><%=a.getsongCount("rock")%> Songs</p>
+      <p class="area"><%out.println(a.getsongCount("rock"));%> Songs</p>
       <div class="rating">
 
       </div>
@@ -165,7 +167,7 @@ GenreServiceImpl  a =new GenreServiceImpl();
   <div class="card">
     <img src="images\hiphop.jpg" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area"><%=a.getsongCount("hiphop")%> Songs</p>
+      <p class="area"><%out.println(a.getsongCount("hiphop"));%>  Songs</p>
       <div class="rating">
        
       </div>
@@ -179,7 +181,7 @@ GenreServiceImpl  a =new GenreServiceImpl();
   <div class="card">
     <img src="images\jazz.jpg" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area"><%=a.getsongCount("jazz")%> Songs</p>
+      <p class="area"><%out.println(a.getsongCount("jazz"));%>  Songs</p>
       <div class="rating">
      
       </div>
@@ -192,7 +194,7 @@ GenreServiceImpl  a =new GenreServiceImpl();
   <div class="card">
     <img src="images\rap.jpg" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area"><%=a.getsongCount("rap")%> Songs</p>
+      <p class="area"><%out.println(a.getsongCount("rap"));%>  Songs</p>
       <div class="rating">
    
       </div>
@@ -205,7 +207,7 @@ GenreServiceImpl  a =new GenreServiceImpl();
   <div class="card">
     <img src="images\rnb.png" alt="Sohan" style="width:100%">
     <div class="container">
-      <p class="area"><%=a.getsongCount("rnb")%> Songs</p>
+      <p class="area"><%out.println(a.getsongCount("rnb"));%> Songs</p>
       <div class="rating">
         
       </div>
@@ -217,8 +219,8 @@ GenreServiceImpl  a =new GenreServiceImpl();
 <div class="column">
   <div class="card">
     <img src="images\cm.png" alt="Sohan" style="width:100%">
-    <div class="container">S
-      <p class="area"><%=a.getsongCount("cm")%> Songs</p>
+    <div class="container">
+      <p class="area"><%out.println(a.getsongCount("cm"));%>  Songs</p>
       <div class="rating">
  
       </div>
