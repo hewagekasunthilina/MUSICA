@@ -107,24 +107,23 @@
 <body>
 
 <div class="banner">
-	<video autoplay loop>
+	<video autoplay loop mute>
 		<source src="videos/video1.mp4" type="video/mp4">
 		
 	</video>
 	
 	<div class="content">
 		<h1>Your Music Store In Here</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<<<<<<< HEAD
+		<p>Musica is an onine music store which can listen to songs and can download them with their music videos. Or else you can download Lyrics about a particular song you want to get to know. In here you can find trending songs in world. Also you can find artists and albums which they are related to. MUSICA LET THE MUSIC WORLD TO GET TO YOUR FINGER TIPS. </p>
 		
+=======
+
+>>>>>>> 702498d1469bea9e6ec61becba1cf272eac7386e
 		<div class = "btn">
 		<a href = "genre.jsp"><button class="button"><span>Albums </span></button></a>
 		<a href= "artist.jsp"><button class="button"><span>Artist </span></button></a>
-		<a href= "instruments.jsp"><button class="button"><span>Instruments </span></button></a>
+		<a href= "userviewInstruments.jsp"><button class="button"><span>Instruments </span></button></a>
 		<button class="button"><span>Store </span></button>
 		</div>
 	</div>

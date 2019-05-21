@@ -10,15 +10,15 @@
 
 	<style>
 	
-		body{
-			background:rgba(0,0,0,0.9);
-			margin: 0;
-			color: #fff;
-			}
+body{
+	background:rgba(0,0,0,0.9);
+	margin: 0;
+	color: #fff;
+	}
 .container {
     position: relative;
     width: 100%;
-}
+    }
 
 .image {
   opacity: 1;
@@ -55,9 +55,6 @@
   padding: 16px 32px;
 }
 
-
-
-
 .button span {
   cursor: pointer;
   display: inline-block;
@@ -83,7 +80,7 @@
   right: 0;
 }
 
-		input[type="submit"]{
+input[type="submit"]{
 			border:0;
 			background-color:none;
 			margin:20px auto;
@@ -96,20 +93,16 @@
 			transition:0.25s;
 			cursor:pointer;
 			width:100px;
-		}
+		   }
 		
-		input[type="submit"]:hover{
+input[type="submit"]:hover{
 			color: red;
 			background-color: white;
 			border: 1px solid red;
 			border-radius: 5px;
 		}
 		
-		
-		
-		
-		
-		/*pagination*/
+/*pagination*/
 
 .pagination a {
     color: black;
@@ -127,7 +120,7 @@
 .pagination a:hover:not(.active) {background-color: #ddd;}
 
 		
-	</style>
+</style>
 </head>
 <body>
 
@@ -162,7 +155,7 @@
            <div class="text">Price :</div>
          </div>
        </div>
-		 <div class="bbb"><p id="demo2"></p>
+		<div class="bbb"><p id="demo2"></p>
 
 <input type="submit" name="pay" value="PAY"></div>
 	   </td>
