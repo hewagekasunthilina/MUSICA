@@ -184,8 +184,8 @@
   				<button class="dropbtn">Instrument</button>
   					<div class="dropdown-content">
     					<a href="addInstrument.jsp">Add Instrument</a>
-    					<a href="updateInstrument.jsp">Update Instrument</a>
-    					<a href="removeInstrument.jsp">Remove Instrument</a>
+    					<a href="viewInstruments.jsp">View Instruments</a>
+    					
     					
  					 </div>
  		    </div>
