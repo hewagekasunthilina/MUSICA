@@ -114,12 +114,16 @@
 	
 	<div class="content">
 		<h1>Your Music Store In Here</h1>
+<<<<<<< HEAD
 		<p>Musica is an onine music store which can listen to songs and can download them with their music videos. Or else you can download Lyrics about a particular song you want to get to know. In here you can find trending songs in world. Also you can find artists and albums which they are related to. MUSICA LET THE MUSIC WORLD TO GET TO YOUR FINGER TIPS. </p>
 		
+=======
+
+>>>>>>> 702498d1469bea9e6ec61becba1cf272eac7386e
 		<div class = "btn">
 		<a href = "genre.jsp"><button class="button"><span>Albums </span></button></a>
 		<a href= "artist.jsp"><button class="button"><span>Artist </span></button></a>
-		<a href= "instruments.jsp"><button class="button"><span>Instruments </span></button></a>
+		<a href= "userviewInstruments.jsp"><button class="button"><span>Instruments </span></button></a>
 		<button class="button"><span>Store </span></button>
 		</div>
 	</div>
